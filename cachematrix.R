@@ -1,10 +1,10 @@
-# Thi function is used to cache the inverse matrix 'invs' of a matrix 'x'
-# This will eliminate recomputing invs ( inverse of x) unless the original matrix x has changed.
-# 4 functions allow 
-# set()  --> to assign
-# get () --> To get the value of the matrix to be inverted (x) and to
+# 'makeCacheMatrix' function is used to cache inverse matrix 'invs' of a matrix 'x'
+# This will eliminate recomputing invs ( inverse of x) when the matrix x hasnt changed.
+# there are 4 functions within makeCacheMatrix which allow setting and retrieving right values
+# set()  --> assign value to x
+# get () --> To get the value of matrix x
 # setinv() --> assign invesrse ( calculate invserse) 
-# getinv ()--> To get the value of inverse of x 
+# getinv ()--> get the value of inverse of x 
 
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -23,11 +23,13 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-# This function returns inverse of a matrix that was created with
+# 'cacheSolve' function returns inverse of a matrix that was created with
 # function (makeCacheMatrix).
-# If the inverse invs of x is not calculated yet is NULL or the matrix x haschanged recently 
-# then it will recalculate the inverse of x,
-# Else it will return a matrix that is the inverse of 'x'
+# If invs ( inverse of x) is not NULL then it will return cached inverse value else 
+# it will calculate in invs value and cache it. New inverse value is calculated only when
+#invs is null i.e eitherinverse of x was not calculated previously ( new matrix) or
+# the original matrix x was changed.
+
 
 cacheSolve <- function(x, ...)
 {
